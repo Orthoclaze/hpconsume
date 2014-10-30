@@ -21,25 +21,18 @@ function start(response) {
   console.log("Request handler 'start' was called.");
 	
 	
-	var body = '<form class="js-autoSubmit" method="GET"' + 
-	'enctype="multipart/form-data"' +
-	'action=idolCall' +//"https://api.idolondemand.com/1/api/async/analyzesentiment/v1" ' +
-	//'target="_blank">' +
-	'<fieldset><h5></h5><div class="source-param-box"></div>' +
-	'<input type="submit" value="submit"></input>' +
-	//'name="apikey"></input>' +
-	//'<input value="https://boards.4chan.org/a/" ' +
-	//'name="url"></input>' +
-	'</fieldset>' +
-	JSON.stringify(fCSOb.aggregate) +
-	'</form>';
-	
+	var body = 
+	'<div> 4chan/a/\'s overall sentiment about everything is' + 
+	JSON.stringify(fCSOb.aggregate) + '</div>' +
+	'<div> 4chan was chosen becauses its an easy way of grabbing a lot of sentiment without logging in or anything. ' +
+	'The author does not recommend visiting this website.';	
 	
 	response.writeHead(200, {"Content-Type": "text/html"});
 	response.write(body);
 	response.end();
 }
 
+/*
 function idolCall() {
 	request(url, function (error, response, body) {
 	if (!error && response.statusCode == 200) {
@@ -48,6 +41,7 @@ function idolCall() {
 		}
 	})
 }
+*/
 
 exports.start = start;
-exports.idolCall = idolCall;
+//exports.idolCall = idolCall;
